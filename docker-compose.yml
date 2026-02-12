@@ -24,6 +24,8 @@ services:
     env_file:
       - ".env"
     restart: always
+    depends_on:
+      - mysql
 
   nginx:
     build:
@@ -34,6 +36,8 @@ services:
     networks:
       - notes-app  
     restart: always
+    depends_on:
+      - django
 
 volumes:
   mysql-data:
